@@ -13,7 +13,7 @@ suite('isGeoJSON test suite', () => {
         }
     };
     const stringifiedFeature = JSON.stringify(feature);
-    
+
     const nonFeature = {
         'test': 100
     };
@@ -21,18 +21,18 @@ suite('isGeoJSON test suite', () => {
 
     const nonJsonString = '';
 
-	test('Accepts a valid geojson', () => {
-		const isValid = utils.isGeoJSON(stringifiedFeature);
+    test('Accepts a valid geojson', () => {
+        const isValid = utils.isGeoJSON(stringifiedFeature);
         assert.strictEqual(isValid, true);
-	});
+    });
 
     test('Rejects non-jsons', () => {
-		const isValid = utils.isGeoJSON(nonJsonString);
+        const isValid = utils.isGeoJSON(nonJsonString);
         assert.strictEqual(isValid, false);
-	});
+    });
 
     test('Rejects valid jsons but invalid geojsons', () => {
-		const isValid = utils.isGeoJSON(stringifiedNonFeature);
+        const isValid = utils.isGeoJSON(stringifiedNonFeature);
         assert.strictEqual(isValid, false);
-	}); 
+    });
 });
