@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { isGeoJSON } from './utils';
 
 export function activate(context: vscode.ExtensionContext) {
 	const disposable = vscode.commands.registerCommand('geojson-tool.viewGeoJSON', () => {
@@ -26,17 +27,12 @@ export function activate(context: vscode.ExtensionContext) {
 					documentText
 				);
 			} else {
-				vscode.window.showWarningMessage("Selected file is not a GeoJSON.");
+				vscode.window.showWarningMessage("Selected file is not a valid GeoJSON.");
 			}
 		}
 	});
-
 	context.subscriptions.push(disposable);
 }
-
-function isGeoJSON(filetext: string){
-	return true;
-};
 
 function createMap(filename: string, filetext: string){
 	return `
