@@ -12,6 +12,14 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "geojson-tool.viewGeoJSON",
+          "when": "resourceExtname == .geojson"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "geojson-tool.viewGeoJSON",
